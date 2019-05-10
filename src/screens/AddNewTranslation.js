@@ -8,6 +8,7 @@ import {
   Button,
   FlatList,
 } from 'react-native';
+import { connect } from 'react-redux';
 
 const styles = StyleSheet.create({
   container: {
@@ -51,7 +52,7 @@ const styles = StyleSheet.create({
   },
 });
 
-export default class AddNewTranslation extends React.Component {
+class AddNewTranslation extends React.Component {
   static navigationOptions = {
     header: null,
   };
@@ -113,3 +114,10 @@ export default class AddNewTranslation extends React.Component {
     );
   }
 }
+
+const mapStateToProps = state => ({
+  color: state.theme,
+});
+
+
+export default connect(mapStateToProps)(AddNewTranslation);
